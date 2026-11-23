@@ -1,0 +1,16 @@
+id: ai-open-metrics
+info:
+  name: ai-open-metrics
+  author: Epsilon0xCell
+  severity: high
+  description: Detects ai-open-metrics exposure on an AI application.
+http:
+  - method: GET
+    path:
+      - "/metrics"
+    matchers:
+      - type: status
+        status: [200]
+      - type: word
+        words:
+          - "llm_tokens_total"

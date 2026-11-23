@@ -1,0 +1,16 @@
+id: ai-unauth-admin-panel
+info:
+  name: ai-unauth-admin-panel
+  author: Epsilon0xCell
+  severity: high
+  description: Detects ai-unauth-admin-panel exposure on an AI application.
+http:
+  - method: GET
+    path:
+      - "/admin"
+    matchers:
+      - type: status
+        status: [200]
+      - type: word
+        words:
+          - "admin panel"
